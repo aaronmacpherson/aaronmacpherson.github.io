@@ -1,0 +1,10 @@
+html 
+{
+	width: 800px;
+}
+
+body header 
+{
+	border: 2px solid black;
+	padding-left: 0.5em;
+}

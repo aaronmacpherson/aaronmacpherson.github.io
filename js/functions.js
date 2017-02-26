@@ -1,16 +1,18 @@
-$(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
-        e.preventDefault();
+function scrollAnimation () {
+    var target = $(this.getAttribute('href'));
 
-        var target = this.hash;
-        var $target = $(target);
+    if (target.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({scrollTop: target.offset().top}, 1000);
+    }
+}
 
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
-    });
+function initialize() {
+    $('a[href^="#"]').on("click", scrollAnimation);
+}
+
+$(document).ready(function () {
+    initialize();
 });
 
 

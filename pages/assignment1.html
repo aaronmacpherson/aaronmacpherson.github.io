@@ -1,0 +1,88 @@
+<html lang="en">
+
+<!--
+Aaron MacPherson
+6724199
+Conestoga College
+Tuesday May 31, 2016
+Assignment 1
+-->
+
+	<head>
+		<title>Assignment 1</title>
+		<link rel="stylesheet" href="../css/assignment1.css">
+		<script type="text/javascript">
+			function getSum() 
+			{
+				var sumOdd = 0;
+				var sumEven = 0;
+				var avgOdd = 0;
+				var avgEven = 0;
+				var countOdd = 0;
+				var countEven = 0;
+				
+				var num = parseInt(prompt("Enter a number. non-numeric entry will cancel program."));
+				
+				if (num == 0) //if input is 0 give an error.
+				{
+					alert("Entry must be above 0.");
+					num = parseInt(prompt("Enter a number. non-numeric entry will cancel program."));
+				}								
+				
+				while (!isNaN(num)) //While user input is a number. Go through the loop.
+				{
+					if (num % 2 == 1 || num % 2 == -1) //if input is odd enter if statement.
+					{
+						sumOdd = sumOdd + num;
+						countOdd++;
+						num = parseInt(prompt("Enter a number. non-numeric entry will cancel program."));
+						
+						if (num == 0) 
+						{
+							alert("Entry must be above 0.");
+							num = parseInt(prompt("Enter a number. non-numeric entry will cancel program."));
+						}
+					}
+					else if (num % 2 == 0) //if input is even enter if statement.
+					{
+						sumEven = sumEven + num;
+						countEven++;
+						num = parseInt(prompt("Enter a number. non-numeric entry will cancel program."));
+						
+						if (num == 0) 
+						{
+							alert("Entry must be above 0.");
+							num = parseInt(prompt("Enter a number. non-numeric entry will cancel program."));
+						}
+					}
+				}				
+				if (countOdd > 0 || countEven > 0) //when user cancels the loop, if they entered an odd number, an even number, or both. Enter this if statement.
+				{
+					avgOdd = parseFloat(sumOdd/countOdd);
+					avgEven = parseFloat(sumEven/countEven);
+					document.getElementById("oddOutput").innerHTML = "Sum of odd numbers: " + sumOdd + " " + "Average of odd numbers: " + avgOdd.toFixed(2);
+					document.getElementById("evenOutput").innerHTML = "Sum of even numbers: " + sumEven + " " + "Average of even numbers: " + avgEven.toFixed(2);
+				}
+				else //Resets outputs if user cancels before entering an input.
+				{
+					document.getElementById("oddOutput").innerHTML = "";
+					document.getElementById("evenOutput").innerHTML = "";
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<header>
+			<h1>Assignment 1</h1>
+			<p>Pressing the button will allow the user to enter in as many numbers as they desire. Once the program is cancelled by the user
+			it will find the sum and average of all odd and even numbers.</p>
+			<p><input type="button" id="myButton" value="Begin" onclick="getSum()"></p>
+		</header>
+		<main>
+			<h3 id="oddOutput"></h3>
+			<h3 id="evenOutput"></h3>
+		</main>
+	</body>
+	
+</html>

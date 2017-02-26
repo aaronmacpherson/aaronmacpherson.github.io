@@ -1,0 +1,89 @@
+<html lang="en">
+
+<!--
+Aaron MacPherson
+Tuesday June 15, 2016
+Assignment 2
+-->
+
+	<head>
+		<meta charset="utf-8">
+		<title>Assignment 2</title>
+		<script type="text/javascript" src="../js/assignment2.js"></script>
+		<link rel="stylesheet" href="../css/assignment2.css">
+	</head>
+	
+	<body>
+		<header>
+			<img src="../images/google.png" alt="googlelogo">
+		</header>
+		<h2>Create Your Google Account</h2>
+		<form name="gmail" action="#" method="post" onsubmit="return validation()" enctype="text/plain">
+			<fieldset><legend>*Name</legend>
+				<input type="text" name="firstname" placeholder="First" onBlur="capitalizeFirstname(), trimFirstname()" autofocus> <!--Required field--> <!--onBlur calls two functions: capitalizeFirstname() and trimFirstname()-->
+				<input type="text" name="lastname" placeholder="Last" onBlur="capitalizeLastname(), trimLastname()"> <!--Required field-->
+			</fieldset>
+			<fieldset><legend>Choose your Username</legend>
+				<input type="text" name="username">
+			</fieldset>
+			<fieldset><legend>Create a Password</legend>
+				<input type="password" name="createpass">
+			</fieldset>
+			<fieldset><legend>Confirm your Password</legend>
+				<input type="password" name="confirmpass">
+			</fieldset>
+			<fieldset><legend>Birthday</legend>
+				<select name="month">
+					<option value="jan">Jan</option>
+					<option value="feb">Feb</option>
+					<option value="mar">Mar</option>
+					<option value="apr">Apr</option>
+					<option value="may">May</option>
+					<option value="jun">Jun</option>
+					<option value="jul">Jul</option>
+					<option value="aug">Aug</option>
+					<option value="sep">Sep</option>
+					<option value="oct">Oct</option>
+					<option value="nov">Nov</option>
+					<option value="dec">Dec</option>
+				</select>
+				<input type="text" name="day" size="2" placeholder="Day">
+				<input type="text" name="year" size="4" placeholder="Year">
+			</fieldset>
+			<fieldset><Legend>Gender</legend>
+				<input type="radio" name="gender" value="male">Male
+					<input type="radio" name="gender" value="female">Female
+					<input type="radio" name="gender" value="other">Other
+			</fieldset>
+			<fieldset><legend>*Mobile Phone</legend>
+				<input type="text" name="phonenumber" placeholder="(000)-000-0000"> <!--Required field-->
+			</fieldset>
+			<fieldset><legend>*Your Current Email Address</legend>
+				<input type="text" name="currentemail"> <!--Required field-->
+			</fieldset>
+			<fieldset><legend>*Location</legend>
+				<select name="province">
+						<option value="ab">AB</option>
+						<option value="bc">BC</option>
+						<option value="mb">MB</option>
+						<option value="nb">NB</option>
+						<option value="nl">NL</option>
+						<option value="ns">NS</option>
+						<option value="nt">NT</option>
+						<option value="nu">NU</option>
+						<option value="on">ON</option>
+						<option value="pe">PE</option>
+						<option value="qc">QC</option>
+						<option value="sk">SK</option>
+						<option value="yt">YT</option>
+					</select>
+					<input type="text" name="city" placeholder="City"> <!--Required field-->
+					<input type="text" name="pcode" placeholder="Postal Code (N4K 1C7)" onBlur="pcodeUppercase()"> <!--Required field-->
+			</fieldset>
+			<input type="submit" value="Submit">
+			<input type="reset" value="Reset">
+		</form>
+		<h3 id ="errors"></h3> <!--Empty h3 tag for error messages-->
+	</body>
+	
+</html>
